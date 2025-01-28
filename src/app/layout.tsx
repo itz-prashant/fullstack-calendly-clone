@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
 
 
 const noto = Noto_Sans({
@@ -24,7 +25,10 @@ export default function RootLayout({
       <body
         className={`${noto.variable} antialiased`}
       >
-        {children}
+        <main className="container mx-auto">
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   );
