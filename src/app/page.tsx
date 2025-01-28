@@ -1,7 +1,9 @@
-
+import Header from "./components/Header";
 
 export default function Home() {
   return (
-    <div className="text-red-500">Test</div>
+    <main className="container mx-auto ">
+      <Header />
+    </main>
   );
 }
