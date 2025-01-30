@@ -1,7 +1,12 @@
+"use server";
+import { session } from "@/lib/session";
 import Link from "next/link";
 import { SiCalendly } from "react-icons/si";
+import RightNav from "./RightNav";
 
-export default function Header() {
+export default async function Header() {
+  const email = await session().get("email");
+
   return (
     <header className="flex gap-4 justify-between items-center py-6 px-4 text-gray-700 font-light">
       <div className="flex gap-6 items-center">
@@ -18,16 +23,7 @@ export default function Header() {
           <Link href={"/pricing"}>Pricing</Link>
         </nav>
       </div>
-
-      <nav className="flex items-center gap-4">
-        <Link href={"/pricing"}>Sign in</Link>
-        <Link
-          href={"/pricing"}
-          className="bg-blue-600 text-white rounded-full py-2 px-4"
-        >
-          Get started
-        </Link>
-      </nav>
+      <RightNav email={email}/>
     </header>
   );
 }
